@@ -23,10 +23,8 @@ import {
   Check,
   X,
   RefreshCw,
-  Wallet,
   Search
 } from "lucide-react";
-import { FinanceBentoDemo } from "@/components/ui/demo";
 
 // Benchmark edge cases dataset from reports/edge_cases.csv
 export interface BenchmarkSample {
@@ -193,7 +191,7 @@ export const BENCHMARK_CASES: BenchmarkSample[] = [
   }
 ];
 
-export type NavTab = "studio" | "benchmark" | "edgecases" | "architecture" | "finance";
+export type NavTab = "studio" | "benchmark" | "edgecases" | "architecture";
 
 export function ReviewLensBento() {
   const [activeTab, setActiveTab] = React.useState<NavTab>("studio");
@@ -206,7 +204,7 @@ export function ReviewLensBento() {
   React.useEffect(() => {
     const handleHash = () => {
       const hash = window.location.hash.replace("#", "") as NavTab;
-      if (["studio", "benchmark", "edgecases", "architecture", "finance"].includes(hash)) {
+      if (["studio", "benchmark", "edgecases", "architecture"].includes(hash)) {
         setActiveTab(hash);
       }
     };
@@ -388,20 +386,6 @@ export function ReviewLensBento() {
               >
                 <Cpu className="w-3.5 h-3.5" />
                 <span>Architecture</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => changeTab("finance")}
-                aria-pressed={activeTab === "finance"}
-                className={`h-9 px-3.5 sm:px-4 rounded-xl text-xs font-semibold tracking-tight transition-all flex items-center gap-1.5 whitespace-nowrap ${
-                  activeTab === "finance"
-                    ? "bg-white text-black shadow-sm"
-                    : "text-white/50 hover:text-white hover:bg-white/5"
-                }`}
-              >
-                <Wallet className="w-3.5 h-3.5" />
-                <span>Finance Bento</span>
               </button>
             </nav>
           </div>
@@ -1090,24 +1074,6 @@ export function ReviewLensBento() {
                 Confidence scores represent the probability outputs of each respective model: logistic probability from sigmoid log-odds for the Traditional ML baseline, versus softmax temperature-scaled logits for DistilBERT. They reflect internal model certainty, not absolute inter-model calibrated probabilities.
               </div>
             </div>
-          </div>
-        )}
-
-        {/* ========================================================================= */}
-        {/* PAGE 5: FINANCE BENTO TAB (Original Component)                            */}
-        {/* ========================================================================= */}
-        {activeTab === "finance" && (
-          <div className="space-y-4 animate-in fade-in duration-300">
-            <div className="p-4 rounded-2xl bg-white/[0.04] border border-white/10 mb-4 flex items-center justify-between">
-              <div>
-                <span className="text-xs font-semibold uppercase text-white/50 tracking-wider font-mono">
-                  Original Component Showcase
-                </span>
-                <h3 className="text-lg font-bold text-white">Finance Bento Dashboard</h3>
-              </div>
-              <span className="text-xs font-mono text-white/40">Canvas + Plain DOM SVG</span>
-            </div>
-            <FinanceBentoDemo />
           </div>
         )}
 

@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "ReviewLens AI & Finance Bento",
-  description: "Next-gen Dashboard & Review Sentiment Benchmark",
+  title: "ReviewLens AI | Sentiment Intelligence Studio",
+  description: "Comparative Review Sentiment Analysis Using Traditional ML and Transformers",
 };
 
 export default function RootLayout({

@@ -1,0 +1,1 @@
+"""Baseline model implementation placeholder."""

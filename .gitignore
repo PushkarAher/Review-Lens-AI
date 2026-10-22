@@ -1,0 +1,36 @@
+# Python & Virtual Environment
+.venv/
+env/
+venv/
+ENV/
+*.py[cod]
+*$py.class
+__pycache__/
+
+# Testing & Notebooks
+.pytest_cache/
+.coverage
+htmlcov/
+.ipynb_checkpoints/
+
+# Datasets and raw data (IMDb raw downloads/caches)
+data/downloads/
+data/imdb/
+data/*.arrow
+data/*.tar.gz
+data/*.parquet
+data/*.csv
+data/cache/
+.cache/
+hf_cache/
+
+# OS and Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Large model artifacts (>20MB)
+models/*.bin
+models/*.pt
+models/*.onnx

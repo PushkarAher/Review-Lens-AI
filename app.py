@@ -47,43 +47,76 @@ def get_cached_transformer():
     return get_transformer_components()
 
 
-# Custom UI Styling
+# Custom UI Styling: ReviewLens Bento Dark & Neon Accent Theme
 st.markdown(
     """
     <style>
+    /* Dark Bento Palette */
+    .stApp {
+        background-color: #000000;
+        color: #ffffff;
+    }
     .main-header {
-        font-size: 2.2rem;
-        font-weight: 700;
-        color: #1E293B;
+        font-size: 2.4rem;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        color: #ffffff;
         margin-bottom: 0.2rem;
+    }
+    .main-header .neon {
+        color: #E8FF1F;
     }
     .sub-header {
         font-size: 1.05rem;
-        color: #475569;
+        color: rgba(255, 255, 255, 0.6);
         margin-bottom: 1.5rem;
     }
-    .model-card {
-        background-color: #F8FAFC;
-        border: 1px solid #E2E8F0;
-        border-radius: 10px;
-        padding: 1.2rem;
-        margin-bottom: 1rem;
+    .model-card, div[data-testid="stMetric"] {
+        background: rgba(255, 255, 255, 0.04) !important;
+        border: 1px solid rgba(255, 255, 255, 0.12) !important;
+        border-radius: 20px !important;
+        padding: 1.2rem !important;
+        backdrop-filter: blur(16px);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    }
+    div[data-testid="stMetricValue"] {
+        color: #ffffff !important;
+        font-family: monospace !important;
+    }
+    div[data-testid="stMetricLabel"] {
+        color: rgba(255, 255, 255, 0.6) !important;
+        text-transform: uppercase !important;
+        font-size: 0.75rem !important;
+        letter-spacing: 0.05em !important;
     }
     .badge-pos {
-        background-color: #DCFCE7;
-        color: #166534;
-        padding: 4px 12px;
+        background-color: rgba(232, 255, 31, 0.15);
+        color: #E8FF1F;
+        border: 1px solid rgba(232, 255, 31, 0.3);
+        padding: 4px 14px;
         border-radius: 9999px;
-        font-weight: 600;
+        font-weight: 700;
         font-size: 0.95rem;
+        font-family: monospace;
     }
     .badge-neg {
-        background-color: #FEE2E2;
-        color: #991B1B;
-        padding: 4px 12px;
+        background-color: rgba(239, 68, 68, 0.15);
+        color: #f87171;
+        border: 1px solid rgba(239, 68, 68, 0.3);
+        padding: 4px 14px;
         border-radius: 9999px;
-        font-weight: 600;
+        font-weight: 700;
         font-size: 0.95rem;
+        font-family: monospace;
+    }
+    /* Buttons */
+    button[kind="primary"] {
+        background-color: #E8FF1F !important;
+        color: #000000 !important;
+        font-weight: 700 !important;
+        border-radius: 14px !important;
+        border: none !important;
+        box-shadow: 0 0 20px rgba(232, 255, 31, 0.3) !important;
     }
     </style>
     """,
@@ -91,7 +124,7 @@ st.markdown(
 )
 
 # Header
-st.markdown('<div class="main-header">🔍 ReviewLens AI</div>', unsafe_allow_html=True)
+st.markdown('<div class="main-header">🔍 ReviewLens <span class="neon">AI</span></div>', unsafe_allow_html=True)
 st.markdown(
     '<div class="sub-header">Comparative Review Sentiment Analysis: Traditional Machine Learning vs Pretrained Transformer</div>',
     unsafe_allow_html=True,

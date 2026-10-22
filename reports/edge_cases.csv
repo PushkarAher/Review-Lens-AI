@@ -1,0 +1,16 @@
+id,category,expected_intent,baseline_prediction,baseline_confidence,transformer_prediction,transformer_confidence,models_agree,review_length_words,review_text
+1,Direct Negation,Negative,Negative,0.966,Negative,0.9998,True,10,"The plot was not good, actually it was completely terrible."
+2,Double Negation,Positive,Positive,0.6724,Negative,0.6017,False,13,I cannot say that I did not enjoy this clever and charming film.
+3,Sarcasm / Irony,Negative,Positive,0.642,Positive,0.8765,True,18,What a masterpiece! If your goal in life is to fall into a deep coma within ten minutes.
+4,"Mixed: Positive Lead, Negative Climax",Negative,Negative,0.7364,Negative,0.9989,True,17,"The opening thirty minutes had stunning visuals and decent acting, but the ending was an unmitigated disaster."
+5,"Mixed: Negative Lead, Positive Climax",Positive,Positive,0.8119,Positive,0.9998,True,18,"Despite a clumsy first act and awkward dialogue, the film blossoms into a deeply moving and unforgettable triumph."
+6,Very Short Positive,Positive,Positive,0.9878,Positive,0.9999,True,2,Loved it!
+7,Very Short Negative,Negative,Negative,0.9711,Negative,0.9997,True,1,Avoid.
+8,Colloquial Slang (Positive),Positive,Positive,0.6762,Positive,0.9979,True,9,"This movie is the undisputed GOAT, absolute fire throughout."
+9,Colloquial Slang (Negative),Negative,Negative,0.7613,Negative,0.9997,True,6,"Complete dumpster fire, pure trash acting."
+10,Excessive Punctuation,Positive,Positive,0.9737,Positive,0.9999,True,5,BEST MOVIE EVER?!?!?! Absolutely brilliant!!!!!!
+11,Neutral / Objective Description,Neutral / Ambiguous,Positive,0.5829,Positive,0.9636,True,14,The documentary is 90 minutes long and depicts daily life in a rural village.
+12,Sarcastic Praise,Negative,Negative,0.717,Positive,0.9963,False,15,"A work of pure genius, assuming the script was written by a four-year-old on sugar."
+13,Inverted Expectation,Positive,Positive,0.5864,Negative,0.978,False,17,"I fully expected to despise every second of this, yet I walked away captivated and in tears."
+14,Very Long Review (Positive),Positive,Positive,0.9275,Positive,0.9999,True,589,A remarkable achievement in modern cinema with breathtaking cinematography and profound emotional resonance. A remarkabl...
+15,Very Long Review (Negative),Negative,Negative,0.9936,Negative,0.9998,True,680,"An exhausting, utterly tedious and uninspired waste of celluloid with incoherent plotting and dismal performances. An ex..."

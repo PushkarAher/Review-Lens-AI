@@ -11,9 +11,9 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 # Reproducibility Seed
 RANDOM_SEED = 42
 
-# Evaluation Sample Settings
-EVAL_SAMPLE_SIZE = 5000
-CLASS_SAMPLE_SIZE = 2500  # 2,500 positive, 2,500 negative
+# Evaluation Sample Settings (1,000 stratified reviews for optimal CPU efficiency & significance)
+EVAL_SAMPLE_SIZE = 1000
+CLASS_SAMPLE_SIZE = 500  # 500 positive, 500 negative
 
 # Transformer Settings
 TRANSFORMER_MODEL_ID = "distilbert/distilbert-base-uncased-finetuned-sst-2-english"

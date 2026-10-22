@@ -405,19 +405,19 @@ function seg(host,items,key){host.innerHTML=items.map(k=>`<button type="button" 
   host.querySelectorAll('button').forEach(b=>b.onclick=()=>{S[key]=b.textContent;host.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));updateAll()})}
 seg($id('period'),['1M','3M','1Y','All'],'period');
 seg($id('ccy'),['USD','EUR'],'ccy');
-function updateAll(){updateNW();updateAlloc();updateRet();updateCash();updatePay();updateGoals();updateFlow();updateCrypto();updateStocks()}
+function updateAll(){updateNW();updateAlloc();updateRet();updateCash();updatePay();updateGoals();updateFlow(false);updateCrypto();updateStocks(false)}
 
 let rz;const ro=new ResizeObserver(()=>{clearTimeout(rz);rz=setTimeout(()=>{if(!nwData)return;cancelAnimationFrame(nwRaf);nwGrow=1;drawNW();updateFlow(true);updateStocks(true);updateCash();updateGoals()},120)});
 ['nw','flow','stocks','cash'].forEach(id=>ro.observe($id(id)));
 const vbm=$id('vbm');const ON=new Set(['0,0','4,0','1,1','3,1','2,2']);
-if(vbm)for(let i=0;i<15;i++){const x=i%5,y=Math.floor(i/5),e=document.createElement('i');if(ON.has(x+','+y))e.className='on';e.style.setProperty('--x',x);vbm.appendChild(e)}
+if(vbm)for(let i=0;i<15;i++){const x=i%5,y=Math.floor(i/5),e=document.createElement('i');if(ON.has(x+','+y))e.className='on';e.style.setProperty('--x',String(x));vbm.appendChild(e)}
 (document.fonts?document.fonts.ready:Promise.resolve()).then(()=>{if(!alive)return;$id('grid').classList.add('in');
   root.querySelectorAll('.card').forEach((c,i)=>c.style.transitionDelay=(i*60)+'ms');updateAll()});
 
-  return () => { alive = false; frames.forEach((f) => cancelAnimationFrame(f)); ro.disconnect(); clearTimeout(rz); };
+  return () => { alive = false; frames.forEach((f: any) => cancelAnimationFrame(f)); ro.disconnect(); clearTimeout(rz); };
 }
 
-export function FinanceBento({ data, title = "Overview", subtitle = "", avatar, avatarAlt = "Profile", credit = true, className = "", style }) {
+export function FinanceBento({ data, title = "Overview", subtitle = "", avatar, avatarAlt = "Profile", credit = true, className = "", style }: FinanceBentoProps) {
   const ref = React.useRef(null);
   React.useEffect(() => {
     const el = ref.current;

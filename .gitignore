@@ -34,3 +34,11 @@ Thumbs.db
 models/*.bin
 models/*.pt
 models/*.onnx
+
+# Node.js & Next.js
+node_modules/
+.next/
+out/
+build/
+*.tsbuildinfo
+next-env.d.ts
